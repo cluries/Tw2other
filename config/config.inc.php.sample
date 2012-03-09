@@ -1,0 +1,47 @@
+<?php
+
+! defined ( 'BASE_PATH' ) && exit ();
+
+
+define ( 'BASE_URL', 'http://t2o.loc');
+define ( 'TMPDIR'  , 'tmp_dev' );
+define ( 'ENCRYPT_SECRET', '01234567' );
+
+
+/**
+ * 同步等级
+ * 
+ * 0 不过滤
+ * 1 过滤回复别人的tweet
+ * 2  过滤不加评论的RT别人的推	
+ * 3 只同步自己的tweet,推中不包含RT,@字样	
+ * 4 所有的推都不同步（设置为此的时候，只有当推中出现了你设置的tagToSync标签时候才会同步 ）
+ */
+$cfg_twitter ['level']      = 0;	
+$cfg_twitter ['tagToSync']  = '#sync';
+$cfg_twitter ['tagNotSync'] = '#nsync';
+$cfg_twitter ['key'] 	   	= '';
+$cfg_twitter ['secret']		= '';
+$cfg_twitter ['interval']   = 50;
+
+
+$cfg_sina['key'] 			= '';
+$cfg_sina['secret'] 		= '';
+$cfg_sina['specialTag']		= '#nsna';
+
+$cfg_tencent['key']			= '';
+$cfg_tencent['secret']		= '';
+$cfg_tencent['specialTag']	= '#nqq';
+
+$cfg_renren['key']			= '';
+$cfg_renren['secret']		= '';
+$cfg_renren['specialTag']	= '#nren';
+
+$cfg_douban['key']			= '';
+$cfg_douban['secret']		= '';
+$cfg_douban['specialTag']	= '#ndb';
+
+
+$cfg_fanfou['key']			= '';
+$cfg_fanfou['secret']		= '';
+$cfg_fanfou['specialTag']	= '#nff';

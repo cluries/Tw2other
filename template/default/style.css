@@ -1,0 +1,230 @@
+@CHARSET "UTF-8";
+ 
+body {
+    margin: 0;
+    padding: 0;
+    font-family:"微软雅黑",Verdana,Tahoma, Arial, Serif;    
+    line-height: 1.3em;
+    font-size: 10px; /* IE5 Win */
+    voice-family: "\"}\""; 
+    voice-family: inherit;
+    font-size: 10px; /* easy scaling */
+    font-size: 0.84em;
+    color: #333333;
+    background: url('images/fullbody.png');
+}
+ 
+h1,h2,h3,h4,h5,h6
+{
+    font-family:Georgia,Verdana, Arial, Serif;
+    margin: 0;
+    padding:0;
+    font-weight: normal;
+    color: #EEE;
+    line-height:1.3em;
+    margin:0.25em 0 0.5em 0;
+}
+
+h1 {font-size:   2em;}
+h2 {font-size: 1.5em;}
+h3 {font-size: 1.3em;}
+h4 {font-size: 1.3em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1.1em;}
+
+p, ol, ul {
+    margin: 0 0 0.5em 0;    
+    line-height:1.6em;
+}
+
+a {
+     text-decoration:none;
+}
+
+a:link, a:visited  {
+    color:#994433;
+}
+
+a:hover, a:active {
+    border-bottom: 1px solid;
+    color: #904030;
+    text-decoration:none;
+}
+ 
+img {
+    border: none;
+}
+
+blockquote {
+    margin:0 1em;
+    padding:0 1.5em;
+    font-style:italic;
+    color:#666;
+}
+
+pre, code {
+    display:block;
+    margin:1em;
+    padding:1em;
+    font-family:"Courier New", Arial, Verdana, Serif;
+    font-size:1em;
+    border: 1px solid #CCCCCC;
+    background:#eee;
+    overflow: auto;
+}
+
+abbr, acronym {
+    cursor:help;
+}
+
+hr {
+    clear:both;
+    margin:5px;
+    color:#eee;
+    height:1px;
+    border:none;
+    border-bottom: 1px solid #eee;
+}
+
+table {
+    width:100%;
+    border:#eee 1px solid;
+    padding:5px;
+}
+
+th {
+    text-align:left;
+    background:#bbd;
+}
+
+#navt2o {
+    margin: 5em auto 1em;
+    color:#999;
+    text-align: center;
+}
+
+#navt2o a{
+     color:#999;
+}
+
+#message {
+    margin: 3em 0 0 0;
+    color: #FFF
+}
+
+#message #messageface1 {
+    background:url('images/make_fun.png') no-repeat center center;
+    height:128px;
+}
+
+#message #messageface0 {
+    background:url('images/make_sad.png') no-repeat center center;
+    height:128px;
+}
+
+#message #dis {
+    text-align: center;
+    font-size:1.4em;
+    margin-top:15px;
+    clear: both;
+}
+
+.error{
+
+}
+.error .errtitle{
+    font-size:2em;
+    color: #FFF;
+    padding: 0.5em;
+    text-align: center;
+}
+.error .errstr{
+    font-size:1.2em;
+    margin: 1em;
+    padding: 0 0 10px;
+    border-bottom: #999 2px solid;
+    color: #fff;
+}
+
+.error pre{
+    margin: 1em;
+}
+
+#warning {
+    background:yellow;
+    color:red;
+    padding: 5px;
+    clear: both;
+    text-align: center;
+}
+
+.install_container {
+    width:650px;
+    margin: 0 auto;
+    border:none;
+    padding: 0;
+    color: #FFF;
+}
+
+.install_container a{
+    color: yellow;
+}
+
+.install_container h1 {
+    clear: both;
+    color: #FFF;
+    padding: 5px;
+    margin:0;
+    border-bottom: 2px solid #bbc;
+    font-size:3.5em;
+    font-weight:bold;
+    padding: 20px 0px;
+}
+
+.install_container h3{
+    clear: both;
+    padding: 5px 0;
+    margin:15px 0 0 0 ;
+    font-size:1.3em;
+    font-weight:bold;
+}
+
+.install_container h4{
+    clear: both;
+    padding: 5px 0;
+    margin:15px 0 0 0 ;
+    font-size:1.1em;
+    font-weight:bold;
+}
+
+.install_container p{
+    padding: 5px 0px ;
+    line-height:1.6em;
+}
+
+.install_container .info{
+    padding: 5px 0;
+    line-height:1.5px;
+}
+ 
+.install_container .setup .notice {
+    color: yellow;
+    padding: 15px 0px 15px 55px;
+    background:url('images/important.png') no-repeat left;
+}
+
+.install_container .setup  a.go{
+    background:url('images/go.png') no-repeat left;
+    padding-left:45px;
+    text-align: center;
+}
+
+.install_container .setup  a.back{
+    background:url('images/back.png') no-repeat left;
+    padding-left:45px;
+    text-align: center;
+}
+
+.install_container .setup .target_item {
+    height:24px;
+}

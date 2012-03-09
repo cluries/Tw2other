@@ -1,0 +1,61 @@
+<?php
+/**
+ * *********************************************************
+ * 
+ * @author cluries
+ * @link http://cdbit.com
+ * @version 1.0
+ * @copyright 2012 http://cdbit.com All rights reserved
+ * 
+ * *********************************************************
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<?php echo $this->importCss('template/default/style.css') ?>
+<?php echo $this->importScript('template/default/scripts.js');?>
+<title>安装Tw2other</title>
+</head>
+<body>
+<?php if($this->locked_some) { ?>
+<div id="warning">以下认证已经锁定[<?php echo $this->locked_some; ?>]，如果要重新认证,请删除您设置tmp/lock目录下对应的*.lock重试.</div>
+<?php } ?>	
+<div class="install_container">
+	<h1>安装Tw2other</h1>
+	<div class="info">
+		<p>项目主页：<a href="https://github.com/cluries/tw2other">Project Tw2other</a>
+		<p>作者twitter id：<a href="https://twitter.com/cluries"><strong>@cluries</strong></a></p>
+		 
+	</div>
+	<h3>配置方法</h3>
+	<h4>第一步：配置config.inc.php</h4>
+	<div class="setup">
+		<p>打开tw2other所在的目录,进入config目录,用VIM、Notepad++、UltraEdit、TextMate等文本编辑器打开config.inc.php. 具体参数在config.inc.php中有注释。</p>
+		
+		<p class="notice">
+			注意你需要把tmp目录设置为一个别人无法访问的目录，否者如果有人恶意的猜到你的tmp目录,会导致认证信息泄漏。
+		</p>	
+	</div>
+
+	<h4>第二步：认证来源和同步目标</h4>
+	<div class="setup">
+		<p>如果你已经配置好config.inc.php，并且确认tmp目录别人无法访问,那么点此进入认证。</p>
+		<p><a href="?action=auth" title="进入认证" class="go">进入认证</a></p>
+	</div> 
+</div>	
+
+
+
+<div id="navt2o">
+<hr />	
+<a href="https://github.com/cluries/tw2other">Project Tw2other</a>
+<em><?php echo runTime() ?></em>
+<a href="https://twitter.com/cluries"><strong>@cluries</strong></a>
+</div>
+<script type="text/javascript">
+addCloseIcon('warning');
+</script>
+</body>
+</html>

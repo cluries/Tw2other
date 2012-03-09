@@ -1,0 +1,64 @@
+<?php
+/**
+ * *********************************************************
+ * 
+ * @author cluries
+ * @link http://cdbit.com
+ * @version 1.0
+ * @copyright 2012 http://cdbit.com All rights reserved
+ * 
+ * *********************************************************
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<?php echo $this->importCss('template/default/style.css') ?>
+<?php echo $this->importScript('template/default/scripts.js');?>
+<title>进行认证 - 安装Tw2other</title>
+</head>
+<body>
+<?php if($this->locked_some) { ?>
+<div id="warning">以下认证已经锁定[<?php echo $this->locked_some; ?>]，如果要重新认证,请删除您设置tmp/lock目录下对应的*.lock重试.</div>
+<?php } ?>	
+<div class="install_container">
+	<h1>安装Tw2other</h1>
+	<div class="info">
+		<p>项目主页：<a href="https://github.com/cluries/tw2other">Project Tw2other</a>
+		<p>作者twitter id：<a href="https://twitter.com/cluries"><strong>@cluries</strong></a></p>
+	</div>
+	 
+	<h4>认证来源</h4>
+	<div class="setup">
+		<a href="?action=authjmp&type=twitter"><img src="template/default/images/twitter_l.png" /></a>
+	</div> 
+
+	<h4>认证目标</h4>
+	<div class="setup">
+		 <a href="?action=authjmp&type=sina"><img src="template/default/images/sina.png"  class="target_item"/></a>
+		 <a href="?action=authjmp&type=douban"><img src="template/default/images/douban.png"  class="target_item"/></a>
+		 <a href="?action=authjmp&type=tencent"><img src="template/default/images/tencent.png"  class="target_item"/></a>
+		 <a href="?action=authjmp&type=renren"><img src="template/default/images/renren.png"  class="target_item" /></a>
+		 <a href="?action=authjmp&type=fanfou"><img src="template/default/images/fanfou.png"  class="target_item" /></a> 
+	</div> 
+
+	<h4></h4>
+	<div class="setup">
+		<p><a href="?action=default" class="back">返回上一步</a></p>
+	</div>	
+</div>	
+
+
+
+<div id="navt2o">
+<hr />	
+<a href="https://github.com/cluries/tw2other">Project Tw2other</a>
+<em><?php echo runTime() ?></em>
+<a href="https://twitter.com/cluries"><strong>@cluries</strong></a>
+</div>
+<script type="text/javascript">
+addCloseIcon('warning');
+</script>
+</body>
+</html>

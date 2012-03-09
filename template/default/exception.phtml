@@ -1,0 +1,37 @@
+<?php
+/**
+ * *********************************************************
+ * 
+ * @author cluries
+ * @link http://cdbit.com
+ * @version 1.0
+ * @copyright 2012 http://cdbit.com All rights reserved
+ * 
+ * *********************************************************
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<?php echo $this->importCss('template/default/style.css') ?>
+<title><?php  echo $this->title;?></title>
+</head>
+<body>
+<div class="error">
+	<div class="errtitle"><strong>Tw2other</strong><?php echo $this->title; ?></div>
+	<div class="errstr">
+		<?php echo $this->error; ?>
+	</div>
+	<?php if(defined('DEBUG') && DEBUG && $this->exception) { ?>
+	<pre><?php var_dump($this->exception); ?></pre>
+	<?php } ?>
+</div>
+
+<div id="navt2o">
+<a href="https://github.com/cluries/tw2other">Project Tw2other</a>
+<em><?php echo runTime() ?></em>
+<a href="https://twitter.com/cluries"><strong>@cluries</strong></a>
+</div>
+</body>
+</html>
