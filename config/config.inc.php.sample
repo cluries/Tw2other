@@ -3,9 +3,9 @@
 ! defined ( 'BASE_PATH' ) && exit ();
 
 
-define ( 'BASE_URL', 'http://t2o.loc');
-define ( 'TMPDIR'  , 'tmp_dev' );
-define ( 'ENCRYPT_SECRET', '01234567' );
+define ( 'BASE_URL', 'http://t2o.loc');		//设置Tw2other所在的URL
+define ( 'TMPDIR'  , 'tmp' );				//请设置为一个别人无法访问到的目录，确认此目录存在并且可写下面应该有locks和logs这2个目录，同时请确认这2目录都可写
+define ( 'ENCRYPT_SECRET', '01234567' );	//加密串，请更改为更复杂的随机字符串
 
 
 /**
