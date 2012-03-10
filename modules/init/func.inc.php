@@ -15,7 +15,7 @@
 function import($file)
 {
 	if (file_exists ( BASE_PATH . $file )) {
-		include BASE_PATH . $file;
+		include_once BASE_PATH . $file;
 		return 1;
 	}
 	

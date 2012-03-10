@@ -31,10 +31,10 @@ class Twitter_Source extends SourceBase
 		$parameters ['include_rts'] = true;
 		$parameters ['include_entities'] = true;
 		
-		if (! empty ( $this->info ['sinceId'] )) {
-			$parameters ['since_id'] = $this->info ['sinceId'];
+		if (! empty ( $this->m_info ['sinceId'] )) {
+			$parameters ['since_id'] = $this->m_info ['sinceId'];
 		}
-		
+ 
 		return $parameters;
 	}
 	

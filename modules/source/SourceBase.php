@@ -152,7 +152,7 @@ abstract class SourceBase implements ISource
 	protected function ftLevel($sources)
 	{
 		$pattern = null;
-		switch ($this->syncLevel) {
+		switch ($this->m_cfg['level']) {
 		case 1 :
 			$pattern = '/^@.*/m';
 			break;
@@ -169,7 +169,7 @@ abstract class SourceBase implements ISource
 		}
 		
 		if (! is_array($this->m_force_sync)) {
-			$this->m_force_sync = array('' => , );
+			$this->m_force_sync = array();
 		}
 
 		foreach ( $sources as $tweetId => $tweet ) {
