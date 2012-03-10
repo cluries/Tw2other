@@ -18,30 +18,30 @@ define ( 'ENCRYPT_SECRET', '01234567' );
  * 4 所有的推都不同步（设置为此的时候，只有当推中出现了你设置的tagToSync标签时候才会同步 ）
  */
 $cfg_twitter ['level']      = 0;	
-$cfg_twitter ['tagToSync']  = '#sync';
-$cfg_twitter ['tagNotSync'] = '#nsync';
+$cfg_twitter ['tagToSync']  = '#sync';		//如果出现此标签，强制同步
+$cfg_twitter ['tagNotSync'] = '#nsync';		//如果出现此标签，强制不同步	
 $cfg_twitter ['key'] 	   	= '';
 $cfg_twitter ['secret']		= '';
 $cfg_twitter ['interval']   = 50;
 
 
-$cfg_sina['key'] 			= '';
+$cfg_sina['key']			= '';
 $cfg_sina['secret'] 		= '';
-$cfg_sina['specialTag']		= '#nsna';
+$cfg_sina['specialTag']		= '#nsna';		//出现此标签，不同步到新浪
 
 $cfg_tencent['key']			= '';
 $cfg_tencent['secret']		= '';
-$cfg_tencent['specialTag']	= '#nqq';
+$cfg_tencent['specialTag']	= '#nqq';		//出现此标签，不同步到腾讯
 
 $cfg_renren['key']			= '';
 $cfg_renren['secret']		= '';
-$cfg_renren['specialTag']	= '#nren';
+$cfg_renren['specialTag']	= '#nren';		//出现此标签，不同步到人人
 
 $cfg_douban['key']			= '';
 $cfg_douban['secret']		= '';
-$cfg_douban['specialTag']	= '#ndb';
+$cfg_douban['specialTag']	= '#ndb';		//出现此标签，不同步到豆瓣
 
 
 $cfg_fanfou['key']			= '';
 $cfg_fanfou['secret']		= '';
-$cfg_fanfou['specialTag']	= '#nff';
+$cfg_fanfou['specialTag']	= '#nff';		//出现此标签，不同步到饭否
