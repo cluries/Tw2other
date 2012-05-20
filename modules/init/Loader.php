@@ -17,6 +17,12 @@ class Loader
 	
 	private function __construct()
 	{
+	    /*** nullify any existing autoloads ***/
+        spl_autoload_register(null, false);
+
+        /*** specify extensions that may be loaded ***/
+        spl_autoload_extensions('.php');
+        
 		spl_autoload_register ( array ($this, 'init' ) );
 		spl_autoload_register ( array ($this, 'helper' ) );
 		spl_autoload_register ( array ($this, 'target' ) );
@@ -35,38 +41,48 @@ class Loader
 	protected function init($clazz)
 	{
 		$dir = BASE_PATH . '/modules/init';
-		set_include_path ( $dir );
-		spl_autoload_extensions ( '.php' );
-		spl_autoload ( $clazz );
+		$file = "$dir/$clazz.php";
+		if (!file_exists($file))
+        {
+            return false;
+        }
+        include $file;
 	}
 
 	protected function helper($clazz)
 	{
 		$dir = BASE_PATH . '/helper';
 		$this->splitClazz( $clazz , $dir);
-		set_include_path ( $dir );
-		spl_autoload_extensions('.php');
-		spl_autoload($clazz);
+		$file = "$dir/$clazz.php";
+		if (!file_exists($file))
+        {
+            return false;
+        }
+        include $file;
 	}
 
 	protected function target($clazz) 
 	{
 		$dir = BASE_PATH. '/modules/target';
 		$this->splitClazz($clazz,$dir);	 
-		
-		set_include_path($dir);
-		spl_autoload_extensions('.php');
-		spl_autoload($clazz);
+		$file = "$dir/$clazz.php";
+		if (!file_exists($file))
+        {
+            return false;
+        }
+        include $file;
 	}
 
 	protected function source($clazz) 
 	{
 		$dir = BASE_PATH. '/modules/source';
 		$this->splitClazz($clazz,$dir);	 
-
-		set_include_path($dir);
-		spl_autoload_extensions('.php');
-		spl_autoload($clazz);
+		$file = "$dir/$clazz.php";
+		if (!file_exists($file))
+        {
+            return false;
+        }
+        include $file;
 	}
 
 	protected function splitClazz(& $clazz, &$baseDir)

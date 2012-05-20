@@ -50,7 +50,7 @@ class RenrenOAuth
 		    "client_secret" => $this->m_secret,
 	   	);
 
-		return httpRequest ( $this->accessTokenURL (), $request, 2 );
+		return httpRequest ( self::ACCESS_TOKEN_URL , $request, 2 );
 	}
 
  
