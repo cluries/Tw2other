@@ -1,4 +1,10 @@
+.DS_Store
+tmp/*.oauth
+tmp/*.info
+tmp/*.lock
+tmp/locks/*
 target/*
 config/config.inc.php
 dev.php
 tmp_dev
+.AppleDouble

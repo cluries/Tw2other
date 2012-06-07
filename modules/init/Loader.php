@@ -10,78 +10,26 @@
  * *********************************************************
  */
 
-class Loader
-{
-	
-	protected static $m_instance = null;
-	
-	private function __construct()
-	{
-		spl_autoload_register ( array ($this, 'init' ) );
-		spl_autoload_register ( array ($this, 'helper' ) );
-		spl_autoload_register ( array ($this, 'target' ) );
-		spl_autoload_register ( array ($this, 'source' ) );
-	}
-	
-	public static function getInstance()
-	{
-		if (empty ( self::$m_instance )) {
-			self::$m_instance = new Loader ();
-		}
-		
-		return self::$m_instance;
-	}
-	
-	protected function init($clazz)
-	{
-		$dir = BASE_PATH . '/modules/init';
-		set_include_path ( $dir );
-		spl_autoload_extensions ( '.php' );
-		spl_autoload ( $clazz );
-	}
-
-	protected function helper($clazz)
-	{
-		$dir = BASE_PATH . '/helper';
-		$this->splitClazz( $clazz , $dir);
-		set_include_path ( $dir );
-		spl_autoload_extensions('.php');
-		spl_autoload($clazz);
-	}
-
-	protected function target($clazz) 
-	{
-		$dir = BASE_PATH. '/modules/target';
-		$this->splitClazz($clazz,$dir);	 
-		
-		set_include_path($dir);
-		spl_autoload_extensions('.php');
-		spl_autoload($clazz);
-	}
-
-	protected function source($clazz) 
-	{
-		$dir = BASE_PATH. '/modules/source';
-		$this->splitClazz($clazz,$dir);	 
-
-		set_include_path($dir);
-		spl_autoload_extensions('.php');
-		spl_autoload($clazz);
-	}
-
-	protected function splitClazz(& $clazz, &$baseDir)
-	{
-		$clazzSplits = explode('_', $clazz);
-		if(count($clazzSplits) > 1) {
-			$i = 0;
-			while (isset($clazzSplits[$i+1])) {
-				$baseDir .= "/{$clazzSplits[$i++]}";
-			}
-
-			$clazz = $clazzSplits[$i];
-		}
-	}
-
+function __get_real_clazz_name($clazz) {
+    return preg_replace('/_/', '/', $clazz);
 }
 
-?>
+function __autoload($clazz) {
+    $ext = ".php";
+    $dirs = array(
+        'helper' => BASE_PATH . '/helper',
+        'init' => BASE_PATH . '/modules/init',
+        'target' => BASE_PATH . '/modules/target',
+        'source' => BASE_PATH . '/modules/source'
+    );
+
+    $clazz = __get_real_clazz_name($clazz);
+    foreach($dirs as $name => $dir) {
+        $clazz_file = $dir . "/" . $clazz . $ext;
+        if (file_exists($clazz_file)) {
+            include_once $clazz_file;
+            return;
+        }
+    }
+}
+
