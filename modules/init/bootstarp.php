@@ -16,8 +16,6 @@ include BASE_PATH . '/modules/init/func.inc.php';
 set_exception_handler ( 'exceptionHandler' );
 set_error_handler ( 'errorHandler', E_ALL ^ E_NOTICE );
 
-import ('/modules/init/Loader.php');
+include BASE_PATH . '/modules/init/Loader.php';
 
-Loader::getInstance ()
-
-?>
+//Loader::getInstance ()

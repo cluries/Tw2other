@@ -10,13 +10,11 @@
  * *********************************************************
  */
 
+require_once dirname(__FILE__) . "/config/config.inc.php";
 
-$url = '';
-
-
+$url = BASE_URL . "/run.php";
 $curlHandler = curl_init($url);
 curl_setopt ( $curlHandler, CURLOPT_RETURNTRANSFER, true );
 curl_exec  ( $curlHandler );
 curl_close ( $curlHandler );
 
-?>
