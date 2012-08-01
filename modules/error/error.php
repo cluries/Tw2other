@@ -16,6 +16,6 @@ return array(
 	'E_SOURCE_FILE_NOT_EXISTS' 	=> '以下文件不存在,请确认是否认证过来源？[%s],[%s]',
 	'E_FILE_NOT_EXISTS'			=> '文件 [%s] 不存在',
 	'E_404'						=> '访问的地址不存在',
-	'E_LOCKED'					=> '[%s] 已经锁定,如果要继续,请到你设置的tmp的lock目录下删除[%s]后继续。',
+	'E_LOCKED'					=> '[%s] 已经锁定,如果要继续,请删除lock目录下的[%s]后继续。',
 	'E_NO_UPDATE'				=> '没有需要同步的',
 );

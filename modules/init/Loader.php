@@ -10,6 +10,28 @@
  * *********************************************************
  */
 
+function __autoload($clazz)
+{
+	$modules = array(
+						BASE_PATH . '/modules/init',
+						BASE_PATH . '/helper',
+						BASE_PATH . '/helper',
+						BASE_PATH. '/modules/target',
+						BASE_PATH. '/modules/source'
+					);
+	
+	foreach ($modules as $m) {
+		 $clazz = str_replace('_', '/', $clazz);
+		 $file = $m.'/'.$clazz.'.php';
+		 if (file_exists($file)) {
+		 	include $file;
+		 	return true;
+		 }
+	}
+}
+
+
+/*
 class Loader
 {
 	
@@ -83,5 +105,6 @@ class Loader
 	}
 
 }
+*/
 
 ?>

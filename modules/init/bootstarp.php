@@ -18,6 +18,6 @@ set_error_handler ( 'errorHandler', E_ALL ^ E_NOTICE );
 
 import ('/modules/init/Loader.php');
 
-Loader::getInstance ()
+//Loader::getInstance ()
 
 ?>
