@@ -40,7 +40,7 @@ function twitterJMP__()
 	if ($connection->http_code == 200) {
 		$url = $connection->getAuthorizeURL ( $token );
 		header ( 'Location: ' . $url );
-		break;
+		return;
 	} else {
 		display ( 'Could not connect to Twitter. Refresh the page or try again later.', 0 );
 	}
