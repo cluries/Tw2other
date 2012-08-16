@@ -48,19 +48,26 @@ function twitterJMP__()
 
 function sinaJMP__()
 {
-	import ( '/library/OAuth.php' );
-	import ( '/library/sinaoauth.php' );
+	//import ( '/library/OAuth.php' );
+	//import ( '/library/sinaoauth.php' );
+	
+	import('/library/saetv2.ex.class.php');
 	
 	global $cfg_sina;
 	$type = 'sina';
 	
 	$callbackUrl = callbackUrl($type);
-
+	
+	/*
 	$o 				= new SinaOauth ($cfg_sina['key'] , $cfg_sina['secret']);
 	$token 			= $o->getRequestToken ( $callbackUrl );
 	$authorizeURL 	= $o->getAuthorizeURL ( $token, $callbackUrl );
+	*/
+	
+	$o = new SaeTOAuthV2( $cfg_sina['key'] , $cfg_sina['secret'] );
+	$authorizeURL = $o->getAuthorizeURL( $callbackUrl );
 
-	$_SESSION ['sina_key'] = $token;
+	//$_SESSION ['sina_key'] = $token;
 
 	//$o = new SaeTOAuthV2 ( $cfg_sina ['key'], $cfg_sina ['secret'] );
 	//$authorizeURL = $o->getAuthorizeURL ( callbackUrl ( $type ) ,'code');

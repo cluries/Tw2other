@@ -186,7 +186,7 @@ function exceptionHandler(Exception $ex)
 
 function _er()
 {
-	static $__static_errors__;
+	static $__static_errors__ = null;
 	if (empty ( $__static_errors__ )) {
 		$__static_errors__ = include BASE_PATH . '/modules/error/error.php';
 	}

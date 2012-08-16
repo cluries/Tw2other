@@ -10,7 +10,18 @@
  * *********************************************************
  */
 
-class Renren_Sync extends TargetBase
+class Fanfou_Sync extends TargetBase
 {
+	 
+	public function initOAuth()
+	{
+		// TODO Auto-generated method stub
+		}
+
+	 
+	public function post($tweet)
+	{
+		// TODO Auto-generated method stub
+	}
 
 }

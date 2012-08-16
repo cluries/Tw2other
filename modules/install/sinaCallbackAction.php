@@ -13,7 +13,8 @@
 if (islocked ( 'sina' )) {
 	display ( _er ( 'E_LOCKED', 'sina', 'sina' ), 0 );
 }
- 
+
+/*
 if (empty( $_SESSION ['sina_key'])) {
 	display('SESSION中对应的KEY，请返回重试',0);
 }
@@ -33,3 +34,29 @@ if (! empty ( $token ['oauth_token'] ) && ! empty ( $token ['oauth_token_secret'
 }  
 
 display ( 'sina认证失败' );
+*/
+
+import('/library/saetv2.ex.class.php');
+
+global $cfg_sina;
+$o = new SaeTOAuthV2( $cfg_sina['key'], $cfg_sina['secret'] );
+
+if (!isset($_REQUEST['code'])) {
+	display ( 'sina认证失败' );
+}
+
+$keys = array();
+$keys['code'] = $_REQUEST['code'];
+$keys['redirect_uri'] = callbackUrl('sina');
+$token = false;
+try {
+	$token = $o->getAccessToken( 'code', $keys ) ;
+} catch (OAuthException $e) {
+	display ( 'sina认证失败:'.$e->getMessage() );
+}
+
+if ($token) {
+	Encryption::serializeToFile ( $token, tmpDir ( 'sina.oauth' ) );
+	lockit ( 'sina' );
+	display ( 'sina认证成功' );
+}

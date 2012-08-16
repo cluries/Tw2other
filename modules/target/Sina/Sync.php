@@ -11,8 +11,8 @@
  */
 
 
-import ( '/library/OAuth.php' );
-import ( '/library/sinaoauth.php' );
+
+import('/library/saetv2.ex.class.php');
 
 class Sina_Sync extends TargetBase
 {
@@ -23,13 +23,13 @@ class Sina_Sync extends TargetBase
 	public function initOAuth()
 	{
 		$this->m_token = Encryption::unserializeFromFile ( tmpDir ( 'sina.oauth' ) );
-		$this->m_oauth = new SinaOauth ( $this->m_cfg ['key'], $this->m_cfg ['secret'], $this->m_token ['oauth_token'], $this->m_token ['oauth_token_secret']  );
+		
+		$this->m_oauth = new SaeTClientV2( $this->m_cfg ['key'], $this->m_cfg ['secret'], $this->m_token ['access_token'] );
 	}
 	
 	public function post($tweet)
 	{
-		$params = array ('status' => $tweet );
-		echo $this->m_oauth->oAuthRequest ( self::POST_URL, 'POST', $params );
+		$this->m_oauth->update($tweet);
 	}
 	
 }
