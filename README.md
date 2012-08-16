@@ -2,12 +2,19 @@
 
 已完成新浪、人人、腾讯的同步。豆瓣的OAuth有点问题，认证成功后发送失败，饭否还未开始。改天再做。
 
+新浪V2接口已经添加。
+
 # 安装
 
-运行install.php，按照提醒一步一步走，直到完成。
+* 修改config目录中的config.inc.php.sample为config.inc.php,用编辑器打开修改后的文件，按照文件中的提示填写必须信息,不需要同步的目标留空即可。注意ENCRYPT_SECRET的长度必须为8的倍数。
+
+* 运行install.php，按照提醒一步一步走，直到完成。
+
 
 # 运行
 
-配置cron.php中的$url为你Tw2other所在的URL，即config中的BASE_URL
-
 配置系统Cron，调用cron.php，完工。
+
+# 注意
+
+tmp目录最好设置为一个别人访问不到的目录，如果没办法设置为访问不到的目录，也没关系，有加密。
