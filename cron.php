@@ -9,9 +9,12 @@
  * 
  * *********************************************************
  */
+define ( 'BASE_PATH', dirname ( __FILE__ ) );
 
+include BASE_PATH . '/config/config.inc.php';
+$url = BASE_URL.'/cron.php';
 
-$url = '';
+ 
 
 
 $curlHandler = curl_init($url);
