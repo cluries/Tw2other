@@ -15,6 +15,8 @@ date_default_timezone_set ( trim ( defined ( 'DATE_ZONE' ) ? DATE_ZONE : 'Etc/GM
 include BASE_PATH . '/modules/init/func.inc.php';
 set_exception_handler ( 'exceptionHandler' );
 set_error_handler ( 'errorHandler', E_ALL ^ E_NOTICE );
+set_time_limit(240);
+ignore_user_abort(true);
 
 import ('/modules/init/Loader.php');
 

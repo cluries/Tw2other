@@ -8,7 +8,7 @@
 /**
  * @ignore
  */
-class OAuthException extends Exception {
+class OAuthExceptionWB extends Exception {
 	// pass
 }
 
@@ -191,7 +191,7 @@ class SaeTOAuthV2 {
 			$params['username'] = $keys['username'];
 			$params['password'] = $keys['password'];
 		} else {
-			throw new OAuthException("wrong auth type");
+			throw new OAuthExceptionWB("wrong auth type");
 		}
 
 		$response = $this->oAuthRequest($this->accessTokenURL(), 'POST', $params);
@@ -200,7 +200,7 @@ class SaeTOAuthV2 {
 			$this->access_token = $token['access_token'];
 			$this->refresh_token = $token['refresh_token'];
 		} else {
-			throw new OAuthException("get access token failed." . $token['error']);
+			throw new OAuthExceptionWB("get access token failed." . $token['error']);
 		}
 		return $token;
 	}

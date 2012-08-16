@@ -15,15 +15,12 @@
 import('/library/saetv2.ex.class.php');
 
 class Sina_Sync extends TargetBase
-{
-	const POST_URL = 'http://api.t.sina.com.cn/statuses/update.json';
-	
+{	
 	private $m_oauth;
 	
 	public function initOAuth()
 	{
 		$this->m_token = Encryption::unserializeFromFile ( tmpDir ( 'sina.oauth' ) );
-		
 		$this->m_oauth = new SaeTClientV2( $this->m_cfg ['key'], $this->m_cfg ['secret'], $this->m_token ['access_token'] );
 	}
 	
