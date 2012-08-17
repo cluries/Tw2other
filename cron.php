@@ -14,7 +14,7 @@ define ( 'BASE_PATH', dirname ( __FILE__ ) );
 set_time_limit(240);
 
 include BASE_PATH . '/config/config.inc.php';
-$url = BASE_URL.'/cron.php';
+$url = BASE_URL.'/run.php';
 
  
 
