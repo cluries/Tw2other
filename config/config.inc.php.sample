@@ -28,6 +28,8 @@ $cfg_twitter ['interval']   = 50;
 $cfg_sina['key']			= '';
 $cfg_sina['secret'] 		= '';
 $cfg_sina['specialTag']		= '#nsna';		//出现此标签，不同步到新浪
+$cfg_sina['username']		= 'xxx@xx.com';  //新浪用户名
+$cfg_sina['password']		= 'xxx';		//新浪密码
 
 $cfg_tencent['key']			= '';
 $cfg_tencent['secret']		= '';

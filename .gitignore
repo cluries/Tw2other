@@ -1,6 +1,7 @@
 target/*
 config/config.inc.php
 dev.php
+debug.php
 tmp_dev
 .buildpath
 .settings
