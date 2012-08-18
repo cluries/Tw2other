@@ -30,18 +30,28 @@ class Sina_Sync extends TargetBase
 			$this->m_token = Encryption::unserializeFromFile ( tmpDir ( 'sina.oauth' ) );
 		}
 		
-		$this->m_oauth = new SaeTClientV2 ( $this->m_cfg ['key'], $this->m_cfg ['secret'], $this->m_token ['access_token'] );
+		if ($this->m_token ['auth_timestamp'] + $this->m_token ['expires_in'] >= time ()) {
+			$this->m_oauth = new SaeTClientV2 ( $this->m_cfg ['key'], $this->m_cfg ['secret'], $this->m_token ['access_token'] );
+		}
 	}
 
 
 	public function post($tweet)
 	{
+		if (! $this->m_oauth) {
+			return;
+		}
+		
 		$this->m_oauth->update ( $tweet );
 	}
 
 
 	private function reflashToken()
 	{
+		if (empty ( $this->m_cfg ['username'] ) || empty ( $this->m_cfg ['password'] )) {
+			return;
+		}
+		
 		$this->m_reflash_cookie = tmpDir ( 'reflashsina.cookie' );
 		if (! file_exists ( $this->m_reflash_cookie )) {
 			touch ( $this->m_reflash_cookie );
@@ -53,9 +63,8 @@ class Sina_Sync extends TargetBase
 			return $loginResult;
 		}
 		
-		global $cfg_sina;
 		$callbackUrl = callbackUrl ( 'sina' );
-		$o = new SaeTOAuthV2 ( $cfg_sina ['key'], $cfg_sina ['secret'] );
+		$o = new SaeTOAuthV2 ( $this->m_cfg ['key'], $this->m_cfg ['secret'] );
 		$authorizeURL = $o->getAuthorizeURL ( $callbackUrl );
 		
 		$ch = curl_init ( $authorizeURL );
