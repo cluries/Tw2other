@@ -30,7 +30,7 @@ tmp目录最好设置为一个别人访问不到的目录，如果没办法设�
 如果去新浪认证的时候出现以下错误
  
 > 访问出错了！
-> 你所访问的站点在新浪微博的认证失败，请你联系davidgrajal或者稍后再试。
+> 你所访问的站点在新浪微博的认证失败，请你联系xxxxxoooo或者稍后再试。
 > (error:redirect_uri_mismatch)
 
 这个问题是因为你在新浪API设置那里没有正确填写认证回调地址，去新浪微博开放平台-》高级中设置认证回调地址为： `http://xx.oo/Tw2other/install.php?action=sinaCallback` 即可.
