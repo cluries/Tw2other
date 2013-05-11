@@ -126,7 +126,7 @@ abstract class SourceBase implements ISource
 		}
 		
 		foreach ( $sources as $tweetId => $tweet ) {
-			if (false !== strpos ( $tweet, $this->m_cfg ['tagNotSync'] )) {
+			if (false !== strpos ( $tweet, $this->m_cfg ['tagToSync'] )) {
 				array_push ( $this->m_force_sync, $tweetId );
 			}
 		}
