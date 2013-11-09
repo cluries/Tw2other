@@ -142,7 +142,7 @@ abstract class SourceBase implements ISource
 		
 		foreach ( $sources as $tweetId => $tweet ) {
 			if (false !== strpos ( $tweet, $this->m_cfg ['tagNotSync'] )) {
-				unset ( $content [$k] );
+				unset ( $sources [$tweetId] );
 			}
 		}
 		
