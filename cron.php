@@ -11,7 +11,9 @@
  */
 
 define ( 'BASE_PATH', dirname ( __FILE__ ) );
-set_time_limit(240);
+if (!get_cfg_var('safe_mode')) {
+	set_time_limit(240);
+}
 
 include BASE_PATH . '/config/config.inc.php';
 $url = BASE_URL.'/run.php';
